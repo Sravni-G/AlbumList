@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import Notification from "./Notification";
+import { toast } from "react-toastify";
 
 export default function Update() {
   const [title, setTitle] = useState();
@@ -23,8 +25,10 @@ export default function Update() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/list");
-        alert("Updated successfully");
+        toast("Updated the given Album Successfully");
+        setTimeout(() => {
+          navigate("/list");
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -32,6 +36,7 @@ export default function Update() {
   return (
     <>
       <Navbar />
+      <Notification />
       <h1>Update Album</h1>
       <form className="add-form">
         <label>Id:</label>

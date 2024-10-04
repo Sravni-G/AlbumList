@@ -3,8 +3,8 @@ import Navbar from "./Navbar";
 
 function List() {
   const [albums, setAlbums] = useState([]);
-
-  useEffect(() => {
+  let num = Math.ceil(Math.random()) + 3;
+  const url = useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/albums")
       .then((res) => res.json())
       .then((data) => {
@@ -18,10 +18,14 @@ function List() {
   return (
     <div>
       <Navbar />
-      <ul>
+      <ul className="list">
         {albums.map((album, index) => (
-          <li key={index}>
-            {album.userId} &nbsp;&nbsp;{album.title}
+          <li key={index} className="item">
+            <img
+              src={`https://picsum.photos/200/200?random=${album.id}`}
+              style={{ height: "200px", width: "200px" }}
+            />
+            <p>{album.title}</p>
           </li>
         ))}
       </ul>

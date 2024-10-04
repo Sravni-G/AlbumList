@@ -1,0 +1,65 @@
+.navbar {
+  height: 70px;
+  width: 100%;
+  background-color: rgb(87, 179, 195);
+  margin-bottom: 25px;
+}
+.bttn {
+  margin: 15px 20px;
+  height: 35px;
+  width: 70px;
+  border: solid, 2px, lightcoral;
+  background-color: rgb(241, 244, 236);
+  color: rgb(139, 83, 63);
+  font-weight: bolder;
+}
+h1 {
+  color: rgb(182, 78, 25);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.home h1 {
+  color: coral;
+  margin: 300px 500px;
+  font-size: 50px;
+}
+img {
+  height: 17px;
+  width: 20px;
+  border: none;
+}
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 100px;
+  .item {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      border: 3px solid rgb(9, 177, 233);
+      border-radius: 10px;
+    }
+
+    p {
+      width: 200px;
+      overflow: hidden;
+      font-size: large;
+      text-transform: uppercase;
+      color: lightcoral;
+    }
+  }
+}

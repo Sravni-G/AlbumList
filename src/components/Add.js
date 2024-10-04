@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/componentStyles.css";
 import Navbar from "./Navbar";
+import { toast } from "react-toastify";
+import Notification from "./Notification";
 
 function Add() {
   const [title, setTitle] = useState();
@@ -15,17 +17,23 @@ function Add() {
       body: JSON.stringify({ userId, title }),
     });
     fetch(request)
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+      })
       .then((data) => {
         console.log(data);
-        navigate("/list");
-        alert("Added the given Album Successfully");
+
+        toast("Added the given Album Successfully");
+        setTimeout(() => {
+          navigate("/list");
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
   return (
     <>
       <Navbar />
+      <Notification />
       <h1>Add Album</h1>
       <form className="add-form">
         <label>UserId:</label>

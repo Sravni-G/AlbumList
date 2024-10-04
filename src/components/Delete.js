@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/componentStyles.css";
 import Navbar from "./Navbar";
-
+import Notification from "./Notification";
+import { toast } from "react-toastify";
 export default function Delete() {
   const [id, setId] = useState();
   const navigate = useNavigate();
@@ -20,8 +22,10 @@ export default function Delete() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/list");
-        alert("Deleted successfully");
+        toast("Deleted the given Album Successfully");
+        setTimeout(() => {
+          navigate("/list");
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -29,6 +33,7 @@ export default function Delete() {
   return (
     <>
       <Navbar />
+      <Notification />
       <h1>Delete Album</h1>
       <form className="add-form">
         <label>Id:</label>
